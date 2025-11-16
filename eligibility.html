@@ -1,0 +1,161 @@
+<!-- eligibility.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Eligibility Checker – LifeBlood</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Check if you are likely eligible to donate blood with the LifeBlood eligibility checker.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" referrerpolicy="no-referrer">
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="main-header">
+    <div class="container nav-container">
+        <a href="index.html" class="logo">
+            <span class="logo-icon"><i class="fa-solid fa-droplet"></i></span>
+            <span class="logo-text">LifeBlood</span>
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="nav" id="mainNav">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="register.html">Become a Donor</a></li>
+                <li><a href="requests.html">Request Blood</a></li>
+                <li><a href="donorlist.html">Donor List</a></li>
+                <li><a href="eligibility.html" class="active">Eligibility</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="page-hero small">
+        <div class="container">
+            <h1>Eligibility Checker</h1>
+            <p>
+                Answer a few quick questions to see if you are likely eligible to donate blood.
+                This is not a medical diagnosis but a helpful guide.
+            </p>
+        </div>
+    </section>
+
+    <section class="page-section">
+        <div class="container form-layout single-column">
+            <div class="form-wrapper">
+                <form id="eligibilityForm" class="card form-card">
+                    <h2 class="form-title">
+                        <i class="fa-solid fa-clipboard-check"></i>
+                        Check Your Eligibility
+                    </h2>
+
+                    <p class="form-description">
+                        Please answer honestly. Final eligibility is always determined by medical
+                        professionals at the blood donation center.
+                    </p>
+
+                    <div class="form-group">
+                        <label for="eligAge">Your Age</label>
+                        <input type="number" id="eligAge" name="age" min="16" max="80" required placeholder="Enter your age">
+                    </div>
+
+                    <div class="form-group">
+                        <p class="field-label">Do you have any serious or chronic disease?</p>
+                        <div class="radio-group">
+                            <label>
+                                <input type="radio" name="diseases" value="yes" required>
+                                Yes
+                            </label>
+                            <label>
+                                <input type="radio" name="diseases" value="no">
+                                No
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <p class="field-label">Have you donated blood in the last 3 months?</p>
+                        <div class="radio-group">
+                            <label>
+                                <input type="radio" name="donatedRecently" value="yes" required>
+                                Yes
+                            </label>
+                            <label>
+                                <input type="radio" name="donatedRecently" value="no">
+                                No
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary full-width">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                        Check Eligibility
+                    </button>
+                </form>
+
+                <div id="eligibilityResult" class="result-card" aria-live="polite"></div>
+
+                <div class="info-note subtle">
+                    <i class="fa-solid fa-circle-info"></i>
+                    <p>
+                        This checker is for informational purposes only. For personalized medical
+                        advice, always consult a doctor or authorized blood center staff.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="main-footer">
+    <div class="container footer-content">
+        <div class="footer-brand">
+            <a href="index.html" class="logo small">
+                <span class="logo-icon"><i class="fa-solid fa-droplet"></i></span>
+                <span class="logo-text">LifeBlood</span>
+            </a>
+            <p>
+                LifeBlood is a community initiative to support hospitals and patients with timely
+                blood donations and responsible matching.
+            </p>
+        </div>
+        <div class="footer-contact">
+            <h4>Contact</h4>
+            <p><i class="fa-solid fa-envelope"></i> support@lifeblood.app</p>
+            <p><i class="fa-solid fa-phone"></i> +1 (555) 123-4567</p>
+            <p><i class="fa-solid fa-location-dot"></i> Global, Online</p>
+        </div>
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="register.html">Become a Donor</a></li>
+                <li><a href="requests.html">Request Blood</a></li>
+                <li><a href="donorlist.html">Donor List</a></li>
+                <li><a href="eligibility.html">Eligibility Checker</a></li>
+            </ul>
+        </div>
+        <div class="footer-social">
+            <h4>Follow</h4>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" aria-label="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© <span id="year"></span> LifeBlood. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

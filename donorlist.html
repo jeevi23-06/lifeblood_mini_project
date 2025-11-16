@@ -1,0 +1,159 @@
+<!-- donorlist.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Donor List – LifeBlood</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Browse and filter LifeBlood donors by name, blood group and city.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" referrerpolicy="no-referrer">
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="main-header">
+    <div class="container nav-container">
+        <a href="index.html" class="logo">
+            <span class="logo-icon"><i class="fa-solid fa-droplet"></i></span>
+            <span class="logo-text">LifeBlood</span>
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="nav" id="mainNav">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="register.html">Become a Donor</a></li>
+                <li><a href="requests.html">Request Blood</a></li>
+                <li><a href="donorlist.html" class="active">Donor List</a></li>
+                <li><a href="eligibility.html">Eligibility</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="page-hero small">
+        <div class="container">
+            <h1>Donor Directory</h1>
+            <p>
+                Browse all registered donors on this device. Use search and filters to quickly find
+                compatible donors in your area.
+            </p>
+        </div>
+    </section>
+
+    <section class="page-section">
+        <div class="container">
+            <div class="filters-card card">
+                <div class="filters-header">
+                    <h2><i class="fa-solid fa-filter"></i> Search &amp; Filter Donors</h2>
+                    <button type="button" class="btn-link" id="clearFiltersBtn">
+                        <i class="fa-solid fa-rotate-left"></i> Clear filters
+                    </button>
+                </div>
+                <div class="filters-grid">
+                    <div class="form-group">
+                        <label for="searchInput">Search by Name</label>
+                        <div class="input-with-icon">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input type="text" id="searchInput" placeholder="Type a donor's name">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="filterBloodGroup">Blood Group</label>
+                        <select id="filterBloodGroup">
+                            <option value="all">All groups</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="filterCity">City</label>
+                        <select id="filterCity">
+                            <option value="all">All cities</option>
+                            <!-- Filled dynamically from donors -->
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="filterAvailability">Availability</label>
+                        <select id="filterAvailability">
+                            <option value="all">Available &amp; not available</option>
+                            <option value="available">Only available</option>
+                            <option value="unavailable">Only not available</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <section class="donor-cards-section">
+                <div id="donorCards" class="cards-grid donor-grid">
+                    <!-- Donor cards dynamically inserted here -->
+                </div>
+                <div id="donorEmptyState" class="empty-state">
+                    <i class="fa-solid fa-people-group"></i>
+                    <p>No donors found yet. <a href="register.html">Be the first to register as a donor.</a></p>
+                </div>
+            </section>
+        </div>
+    </section>
+</main>
+
+<footer class="main-footer">
+    <div class="container footer-content">
+        <div class="footer-brand">
+            <a href="index.html" class="logo small">
+                <span class="logo-icon"><i class="fa-solid fa-droplet"></i></span>
+                <span class="logo-text">LifeBlood</span>
+            </a>
+            <p>
+                LifeBlood is a community initiative to support hospitals and patients with timely
+                blood donations and responsible matching.
+            </p>
+        </div>
+        <div class="footer-contact">
+            <h4>Contact</h4>
+            <p><i class="fa-solid fa-envelope"></i> support@lifeblood.app</p>
+            <p><i class="fa-solid fa-phone"></i> +1 (555) 123-4567</p>
+            <p><i class="fa-solid fa-location-dot"></i> Global, Online</p>
+        </div>
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="register.html">Become a Donor</a></li>
+                <li><a href="requests.html">Request Blood</a></li>
+                <li><a href="donorlist.html">Donor List</a></li>
+                <li><a href="eligibility.html">Eligibility Checker</a></li>
+            </ul>
+        </div>
+        <div class="footer-social">
+            <h4>Follow</h4>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" aria-label="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© <span id="year"></span> LifeBlood. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!-- register.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LifeBlood | Donor Registration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Register as a blood donor on LifeBlood.">
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="navbar">
+    <div class="container nav-container">
+        <a href="index.html" class="logo">
+            <i class="fa-solid fa-droplet logo-icon"></i>
+            <span>LifeBlood</span>
+        </a>
+
+        <nav class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="register.html" class="nav-link active">Register</a>
+            <a href="requests.html" class="nav-link">Requests</a>
+            <a href="donorlist.html" class="nav-link">Donor List</a>
+            <a href="eligibility.html" class="nav-link">Eligibility</a>
+        </nav>
+
+        <button class="nav-toggle" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</header>
+
+<main>
+    <section class="page-hero">
+        <div class="container">
+            <h1 class="page-title">
+                <i class="fa-solid fa-hand-holding-medical"></i>
+                Donor Registration
+            </h1>
+            <p class="page-subtitle">
+                Join our community of lifesavers. Fill in your details to become a registered donor
+                in the LifeBlood network on this device.
+            </p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container form-section-container">
+            <div class="form-info">
+                <h2>Why register?</h2>
+                <ul class="feature-list">
+                    <li><i class="fa-solid fa-check"></i> Help patients in emergency situations</li>
+                    <li><i class="fa-solid fa-check"></i> Get contacted only when needed</li>
+                    <li><i class="fa-solid fa-check"></i> Update your availability anytime</li>
+                </ul>
+                <p class="note">
+                    Note: LifeBlood is a demo app and stores information locally in your browser.
+                    Clearing your browser data will remove donor records.
+                </p>
+            </div>
+
+            <form id="donorForm" class="card form-card fade-in-up">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="fullName">Full Name <span class="required">*</span></label>
+                        <input type="text" id="fullName" name="fullName" placeholder="e.g. Alex Johnson" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="age">Age <span class="required">*</span></label>
+                        <input type="number" id="age" name="age" min="18" max="70" placeholder="18 - 70" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="gender">Gender <span class="required">*</span></label>
+                        <select id="gender" name="gender" required>
+                            <option value="">Select gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Non-binary">Non-binary</option>
+                            <option value="Prefer not to say">Prefer not to say</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bloodGroup">Blood Group <span class="required">*</span></label>
+                        <select id="bloodGroup" name="bloodGroup" required>
+                            <option value="">Select blood group</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number <span class="required">*</span></label>
+                        <input type="tel" id="phone" name="phone" placeholder="e.g. +1 555 123 4567" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="e.g. alex@example.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="city">City <span class="required">*</span></label>
+                        <input type="text" id="city" name="city" placeholder="e.g. New York" required>
+                    </div>
+
+                    <div class="form-group availability-group">
+                        <span class="availability-label">Availability</span>
+                        <label class="switch">
+                            <input type="checkbox" id="availability" name="availability" checked>
+                            <span class="slider"></span>
+                        </label>
+                        <span class="availability-text" id="availabilityText">Available to donate</span>
+                    </div>
+                </div>
+
+                <div id="donorMessage" class="form-message" aria-live="polite"></div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fa-solid fa-floppy-disk"></i>
+                        Save Donor Profile
+                    </button>
+                    <a href="donorlist.html" class="btn btn-ghost">
+                        <i class="fa-solid fa-users"></i>
+                        View Donor List
+                    </a>
+                </div>
+            </form>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container footer-container">
+        <div class="footer-brand">
+            <a href="index.html" class="logo footer-logo">
+                <i class="fa-solid fa-droplet logo-icon"></i>
+                <span>LifeBlood</span>
+            </a>
+            <p class="footer-text">
+                Your decision to register could save someone's life today. Thank you for being a hero.
+            </p>
+        </div>
+
+        <div class="footer-contact">
+            <h4>Contact</h4>
+            <p><i class="fa-solid fa-envelope"></i> support@lifeblood.app</p>
+            <p><i class="fa-solid fa-phone"></i> +1 (555) 123-4567</p>
+        </div>
+
+        <div class="footer-social">
+            <h4>Connect</h4>
+            <div class="social-links">
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; <span id="currentYear"></span> LifeBlood. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

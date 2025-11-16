@@ -1,0 +1,191 @@
+<!-- requests.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LifeBlood | Blood Requests</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Create and manage blood requests on LifeBlood.">
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="navbar">
+    <div class="container nav-container">
+        <a href="index.html" class="logo">
+            <i class="fa-solid fa-droplet logo-icon"></i>
+            <span>LifeBlood</span>
+        </a>
+
+        <nav class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="register.html" class="nav-link">Register</a>
+            <a href="requests.html" class="nav-link active">Requests</a>
+            <a href="donorlist.html" class="nav-link">Donor List</a>
+            <a href="eligibility.html" class="nav-link">Eligibility</a>
+        </nav>
+
+        <button class="nav-toggle" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</header>
+
+<main>
+    <section class="page-hero">
+        <div class="container">
+            <h1 class="page-title">
+                <i class="fa-solid fa-hospital"></i>
+                Blood Request
+            </h1>
+            <p class="page-subtitle">
+                Submit a blood request and instantly see matching donors from the LifeBlood database
+                stored in this browser.
+            </p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container form-section-container">
+            <form id="requestForm" class="card form-card fade-in-up">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="patientName">Patient Name <span class="required">*</span></label>
+                        <input type="text" id="patientName" name="patientName" placeholder="e.g. Maria Lopez" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="requiredBloodGroup">Required Blood Group <span class="required">*</span></label>
+                        <select id="requiredBloodGroup" name="requiredBloodGroup" required>
+                            <option value="">Select blood group</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="hospital">Hospital / Clinic <span class="required">*</span></label>
+                        <input type="text" id="hospital" name="hospital" placeholder="e.g. City General Hospital" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="requestCity">City <span class="required">*</span></label>
+                        <input type="text" id="requestCity" name="requestCity" placeholder="e.g. New York" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactNumber">Contact Number <span class="required">*</span></label>
+                        <input type="tel" id="contactNumber" name="contactNumber" placeholder="e.g. +1 555 987 6543" required>
+                    </div>
+                </div>
+
+                <div id="requestMessage" class="form-message" aria-live="polite"></div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        Submit Request
+                    </button>
+                    <a href="donorlist.html" class="btn btn-ghost">
+                        <i class="fa-solid fa-users"></i>
+                        View All Donors
+                    </a>
+                </div>
+            </form>
+
+            <div class="match-section">
+                <h2 class="match-title">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    Matching Donors
+                </h2>
+                <p class="match-subtitle">
+                    After submitting a request, compatible donors in the same city will appear below.
+                </p>
+                <div id="matchResults" class="match-results"></div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Confirmation Modal -->
+<div id="requestModal" class="modal" aria-hidden="true">
+    <div class="modal-overlay" data-modal-close></div>
+    <div class="modal-content card fade-in-up">
+        <button class="modal-close" id="closeModal" aria-label="Close">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="modal-body">
+            <div class="modal-icon">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <h2>Request Submitted</h2>
+            <p>
+                Your blood request has been saved locally. Matching donors have been listed on this page.
+                Please contact them directly using the information provided.
+            </p>
+            <div class="modal-actions">
+                <button type="button" id="modalViewDonors" class="btn btn-primary">
+                    <i class="fa-solid fa-users"></i>
+                    View Donor Matches
+                </button>
+                <button type="button" id="modalNewRequest" class="btn btn-ghost" data-modal-close>
+                    <i class="fa-solid fa-plus"></i>
+                    New Request
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="container footer-container">
+        <div class="footer-brand">
+            <a href="index.html" class="logo footer-logo">
+                <i class="fa-solid fa-droplet logo-icon"></i>
+                <span>LifeBlood</span>
+            </a>
+            <p class="footer-text">
+                Use this page in emergencies to quickly see compatible donors already stored on this device.
+            </p>
+        </div>
+
+        <div class="footer-contact">
+            <h4>Contact</h4>
+            <p><i class="fa-solid fa-envelope"></i> support@lifeblood.app</p>
+            <p><i class="fa-solid fa-phone"></i> +1 (555) 123-4567</p>
+        </div>
+
+        <div class="footer-social">
+            <h4>Connect</h4>
+            <div class="social-links">
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; <span id="currentYear"></span> LifeBlood. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

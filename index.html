@@ -1,0 +1,256 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LifeBlood | Blood Donation Management System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="LifeBlood - A simple blood donation management system for matching donors and patients.">
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="navbar">
+    <div class="container nav-container">
+        <a href="index.html" class="logo">
+            <i class="fa-solid fa-droplet logo-icon"></i>
+            <span>LifeBlood</span>
+        </a>
+
+        <nav class="nav-links">
+            <a href="index.html" class="nav-link active">Home</a>
+            <a href="register.html" class="nav-link">Register</a>
+            <a href="requests.html" class="nav-link">Requests</a>
+            <a href="donorlist.html" class="nav-link">Donor List</a>
+            <a href="eligibility.html" class="nav-link">Eligibility</a>
+        </nav>
+
+        <button class="nav-toggle" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</header>
+
+<main>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-container">
+            <div class="hero-text fade-in-up">
+                <p class="eyebrow">Donate Blood. Save Lives.</p>
+                <h1>
+                    Join <span class="highlight">LifeBlood</span> and be someone's hero today.
+                </h1>
+                <p class="hero-subtitle">
+                    A simple platform to connect voluntary blood donors with patients in need.
+                    Register as a donor, request blood, and track available donors in your city.
+                </p>
+                <div class="hero-actions">
+                    <a href="register.html" class="btn btn-primary">
+                        <i class="fa-solid fa-hand-holding-medical"></i>
+                        Become a Donor
+                    </a>
+                    <a href="requests.html" class="btn btn-outline">
+                        <i class="fa-solid fa-hospital"></i>
+                        Request Blood
+                    </a>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat-card">
+                        <span id="totalDonors" class="stat-number">0</span>
+                        <span class="stat-label">Registered Donors</span>
+                    </div>
+                    <div class="stat-card">
+                        <span id="totalRequests" class="stat-number">0</span>
+                        <span class="stat-label">Blood Requests</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">
+                            <i class="fa-solid fa-clock"></i>
+                        </span>
+                        <span class="stat-label">Real-time Local Matching</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-visual fade-in">
+                <div class="blood-drop">
+                    <div class="drop-inner">
+                        <i class="fa-solid fa-droplet"></i>
+                    </div>
+                </div>
+                <p class="hero-note">
+                    One donation can save up to <strong>three</strong> lives.
+                </p>
+                <div class="hero-pillars">
+                    <div class="pillar">
+                        <i class="fa-solid fa-user-shield"></i>
+                        <span>Secure &amp; Private</span>
+                    </div>
+                    <div class="pillar">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>City-based Matching</span>
+                    </div>
+                    <div class="pillar">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                        <span>Community Impact</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About / Features -->
+    <section id="about" class="section about-section">
+        <div class="container section-container">
+            <div class="section-header">
+                <h2>About LifeBlood</h2>
+                <p>
+                    LifeBlood is a lightweight blood donation management system built for communities,
+                    hospitals, and volunteers. It uses your browser's local storage to remember donors
+                    and requests on this device &mdash; no accounts or servers required.
+                </p>
+            </div>
+
+            <div class="features-grid">
+                <article class="card feature-card fade-in-up">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-hand-holding-heart"></i>
+                    </div>
+                    <h3>For Donors</h3>
+                    <p>
+                        Create a donor profile specifying your blood group, city, and availability.
+                        You stay in control of when you're ready to donate.
+                    </p>
+                    <ul class="feature-list">
+                        <li><i class="fa-solid fa-check"></i> Simple, one-time registration</li>
+                        <li><i class="fa-solid fa-check"></i> Set your availability anytime</li>
+                        <li><i class="fa-solid fa-check"></i> Get matched with local requests</li>
+                    </ul>
+                    <a href="register.html" class="text-link">
+                        Register as Donor <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </article>
+
+                <article class="card feature-card fade-in-up">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-kit-medical"></i>
+                    </div>
+                    <h3>For Patients</h3>
+                    <p>
+                        Submit a blood request including hospital and contact information.
+                        LifeBlood instantly suggests compatible donors in your city.
+                    </p>
+                    <ul class="feature-list">
+                        <li><i class="fa-solid fa-check"></i> Fast request form</li>
+                        <li><i class="fa-solid fa-check"></i> Smart city-based matching</li>
+                        <li><i class="fa-solid fa-check"></i> Contact donors directly</li>
+                    </ul>
+                    <a href="requests.html" class="text-link">
+                        Make a Request <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </article>
+
+                <article class="card feature-card fade-in-up">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-notes-medical"></i>
+                    </div>
+                    <h3>Eligibility Guidance</h3>
+                    <p>
+                        Unsure if you can donate? Use the built-in eligibility checker to get a quick,
+                        educational recommendation based on your age and health.
+                    </p>
+                    <ul class="feature-list">
+                        <li><i class="fa-solid fa-check"></i> Age &amp; health-based guidance</li>
+                        <li><i class="fa-solid fa-check"></i> Instant on-page results</li>
+                        <li><i class="fa-solid fa-check"></i> Encourages safe donations</li>
+                    </ul>
+                    <a href="eligibility.html" class="text-link">
+                        Check Eligibility <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section">
+        <div class="container cta-container">
+            <div class="cta-text">
+                <h2>Every drop counts.</h2>
+                <p>
+                    Whether you donate once or often, your contribution matters.
+                    Register today and help build a reliable network of voluntary donors
+                    ready to respond when emergencies happen.
+                </p>
+            </div>
+            <div class="cta-actions">
+                <a href="donorlist.html" class="btn btn-light">
+                    <i class="fa-solid fa-users"></i>
+                    Browse Donor List
+                </a>
+                <a href="eligibility.html" class="btn btn-secondary">
+                    <i class="fa-solid fa-stethoscope"></i>
+                    Check Eligibility
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container footer-container">
+        <div class="footer-brand">
+            <a href="index.html" class="logo footer-logo">
+                <i class="fa-solid fa-droplet logo-icon"></i>
+                <span>LifeBlood</span>
+            </a>
+            <p class="footer-text">
+                LifeBlood is a demo blood donation management interface built with HTML, CSS, and JavaScript.
+                Data is stored locally in your browser.
+            </p>
+        </div>
+
+        <div class="footer-contact">
+            <h4>Contact</h4>
+            <p><i class="fa-solid fa-envelope"></i> support@lifeblood.app</p>
+            <p><i class="fa-solid fa-phone"></i> +1 (555) 123-4567</p>
+            <p><i class="fa-solid fa-location-dot"></i> Your City, Your Country</p>
+        </div>
+
+        <div class="footer-social">
+            <h4>Connect</h4>
+            <div class="social-links">
+                <a href="#" aria-label="LifeBlood on Facebook">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="#" aria-label="LifeBlood on Twitter">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </a>
+                <a href="#" aria-label="LifeBlood on Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="#" aria-label="LifeBlood on LinkedIn">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; <span id="currentYear"></span> LifeBlood. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
